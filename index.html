@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Plant 1 MW | Soluciones Eléctricas</title>
+  <meta name="description" content="Diagrama interactivo de una planta solar fotovoltaica de 1 MW con componentes eléctricos y soluciones comerciales.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>
+        <strong>PV 1 MW</strong>
+        <span>Electrical Solutions</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#diagram">Diagrama</a>
+      <a href="#components">Componentes</a>
+      <a href="#about">Solución</a>
+    </nav>
+    <button class="primary-btn" onclick="openContact()">Solicitar información</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">SOLUCIÓN FOTOVOLTAICA · 1 MWp</span>
+        <h1>Mapa interactivo de componentes eléctricos</h1>
+        <p>Explora la arquitectura eléctrica de una planta solar y descubre qué productos pueden utilizarse en cada etapa del sistema.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" onclick="scrollToSection('diagram')">Explorar sistema</button>
+          <button class="secondary-btn" onclick="scrollToSection('components')">Ver componentes</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div><strong>1 MWp</strong><span>Potencia FV</span></div>
+        <div><strong>1500 V</strong><span>DC</span></div>
+        <div><strong>13.8 kV</strong><span>Media tensión</span></div>
+      </div>
+    </section>
+
+    <section class="workspace" id="diagram">
+      <aside class="sidebar">
+        <div class="sidebar-title">Componentes del sistema</div>
+        <input id="searchInput" class="search" placeholder="Buscar componente..." oninput="renderComponentList()">
+        <div id="categoryFilters" class="filters"></div>
+        <div id="componentList" class="component-list"></div>
+      </aside>
+
+      <section class="diagram-panel">
+        <div class="diagram-toolbar">
+          <div>
+            <span class="eyebrow">SINGLE LINE / SYSTEM VIEW</span>
+            <h2>Planta solar 1 MW</h2>
+          </div>
+          <div class="toolbar-actions">
+            <button onclick="zoomDiagram(1.15)">＋</button>
+            <button onclick="zoomDiagram(0.87)">－</button>
+            <button onclick="resetZoom()">Reset</button>
+          </div>
+        </div>
+
+        <div class="diagram-scroll">
+          <div id="diagramCanvas" class="diagram-canvas">
+            <svg id="singleLine" viewBox="0 0 1200 700" role="img" aria-label="Diagrama unifilar solar 1 MW">
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z"></path>
+                </marker>
+              </defs>
+
+              <text x="60" y="55" class="svg-title">GENERACIÓN FOTOVOLTAICA</text>
+              <text x="810" y="55" class="svg-title">CONVERSIÓN Y EVACUACIÓN</text>
+
+              <g class="wire"><path d="M145 250 H1030" /></g>
+              <g class="wire"><path d="M145 390 H1030" /></g>
+              <g class="wire"><path d="M1030 390 V520" /></g>
+              <g class="wire"><path d="M1030 520 H1120" /></g>
+
+              <g class="component node" data-id="pv" onclick="selectComponent('pv')">
+                <rect x="70" y="180" width="150" height="140" rx="12"/>
+                <text x="145" y="220" class="icon">☀</text>
+                <text x="145" y="258">MÓDULOS FV</text>
+                <text x="145" y="282" class="small">1 MWp</text>
+              </g>
+
+              <g class="component node" data-id="dc" onclick="selectComponent('dc')">
+                <rect x="275" y="190" width="145" height="120" rx="12"/>
+                <text x="347" y="225" class="icon">⇢</text>
+                <text x="347" y="260">CABLE DC</text>
+                <text x="347" y="284" class="small">1500 V</text>
+              </g>
+
+              <g class="component node" data-id="combiner" onclick="selectComponent('combiner')">
+                <rect x="480" y="190" width="150" height="120" rx="12"/>
+                <text x="555" y="225" class="icon">▣</text>
+                <text x="555" y="260">STRING BOX</text>
+                <text x="555" y="284" class="small">FUSIBLES + SPD</text>
+              </g>
+
+              <g class="component node" data-id="inverter" onclick="selectComponent('inverter')">
+                <rect x="690" y="175" width="165" height="150" rx="12"/>
+                <text x="772" y="220" class="icon">↕</text>
+                <text x="772" y="258">INVERSOR</text>
+                <text x="772" y="284" class="small">100 kW / 1500 VDC</text>
+              </g>
+
+              <g class="component node" data-id="ac" onclick="selectComponent('ac')">
+                <rect x="900" y="180" width="150" height="140" rx="12"/>
+                <text x="975" y="220" class="icon">⚡</text>
+                <text x="975" y="258">CABLE AC</text>
+                <text x="975" y="282" class="small">BT / 600-1000 V</text>
+              </g>
+
+              <g class="component node" data-id="transformer" onclick="selectComponent('transformer')">
+                <rect x="710" y="450" width="180" height="135" rx="12"/>
+                <text x="800" y="492" class="icon">◎</text>
+                <text x="800" y="530">TRANSFORMADOR</text>
+                <text x="800" y="554" class="small">BT / 13.8 kV</text>
+              </g>
+
+              <g class="component node" data-id="switchgear" onclick="selectComponent('switchgear')">
+                <rect x="950" y="450" width="160" height="135" rx="12"/>
+                <text x="1030" y="492" class="icon">▤</text>
+                <text x="1030" y="530">CELDA MT</text>
+                <text x="1030" y="554" class="small">13.8 kV</text>
+              </g>
+
+              <g class="component node" data-id="mv" onclick="selectComponent('mv')">
+                <rect x="945" y="615" width="170" height="60" rx="12"/>
+                <text x="1030" y="650">CABLE MT → RED</text>
+              </g>
+
+              <text x="60" y="430" class="section-label">PROTECCIÓN / DISTRIBUCIÓN</text>
+              <g class="component mini node" data-id="protection" onclick="selectComponent('protection')">
+                <rect x="70" y="460" width="150" height="80" rx="10"/>
+                <text x="145" y="495">PROTECCIÓN</text>
+                <text x="145" y="520" class="small">SPD / BREAKERS</text>
+              </g>
+              <g class="component mini node" data-id="monitoring" onclick="selectComponent('monitoring')">
+                <rect x="275" y="460" width="150" height="80" rx="10"/>
+                <text x="350" y="495">MONITOREO</text>
+                <text x="350" y="520" class="small">SCADA / EOSS</text>
+              </g>
+              <g class="component mini node" data-id="grounding" onclick="selectComponent('grounding')">
+                <rect x="480" y="460" width="150" height="80" rx="10"/>
+                <text x="555" y="495">PUESTA A TIERRA</text>
+                <text x="555" y="520" class="small">CONDUCTORES</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot dc"></i> DC</span>
+          <span><i class="dot ac"></i> AC</span>
+          <span><i class="dot mv"></i> Media tensión</span>
+          <span>Haz clic en un componente para ver detalles</span>
+        </div>
+      </section>
+
+      <aside id="detailPanel" class="detail-panel">
+        <button class="close" onclick="closeDetail()">×</button>
+        <div id="detailContent">
+          <div class="empty-detail">
+            <div class="big-icon">⌁</div>
+            <h3>Selecciona un componente</h3>
+            <p>Haz clic sobre cualquier elemento del diagrama o de la lista para visualizar su aplicación y productos asociados.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="catalog-section" id="components">
+      <div class="section-heading">
+        <span class="eyebrow">CATÁLOGO</span>
+        <h2>Componentes y soluciones</h2>
+        <p>Esta información se puede reemplazar por tu catálogo real, fichas técnicas y marcas.</p>
+      </div>
+      <div id="catalogGrid" class="catalog-grid"></div>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <span class="eyebrow">PARA USO COMERCIAL</span>
+        <h2>Una herramienta para explicar la solución completa.</h2>
+      </div>
+      <div>
+        <p>El proyecto está diseñado para que puedas reemplazar productos, marcas, imágenes, normas y fichas técnicas sin modificar la arquitectura del diagrama.</p>
+        <button class="primary-btn" onclick="openContact()">Contactar / solicitar cotización</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="contactModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" onclick="closeContact()">×</button>
+      <span class="eyebrow">CONTACTO COMERCIAL</span>
+      <h2>Solicitar información</h2>
+      <p>Reemplaza este formulario por tu correo, WhatsApp o formulario comercial.</p>
+      <div class="contact-box">
+        <strong>Andrés Cuadrado</strong>
+        <span>Prysmian / Cablec Ecuador</span>
+        <span>Soluciones eléctricas para generación y distribución</span>
+      </div>
+      <a class="primary-btn button-link" href="mailto:ventas@example.com?subject=Consulta%20Solar%201%20MW">Enviar consulta</a>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

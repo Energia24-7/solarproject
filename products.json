@@ -1,0 +1,406 @@
+[
+  {
+    "id": "pv",
+    "n": "01",
+    "name": "Módulos fotovoltaicos",
+    "cat": "GENERACIÓN",
+    "brand": "Sistema FV",
+    "desc": "Campo fotovoltaico de referencia. Potencia, número de módulos y configuración se definen en la ingeniería de la planta.",
+    "spec": [
+      [
+        "Función",
+        "Generación DC"
+      ],
+      [
+        "Diseño",
+        "Según potencia objetivo"
+      ],
+      [
+        "Validación",
+        "DC/AC ratio e irradiación"
+      ]
+    ],
+    "families": [
+      "Módulos FV",
+      "Estructura de soporte"
+    ],
+    "tags": [
+      "generacion"
+    ],
+    "catalog": "Equipo de referencia; no es una familia de cable."
+  },
+  {
+    "id": "dc",
+    "n": "02",
+    "name": "Conexiones DC fotovoltaicas",
+    "cat": "CABLE FOTOVOLTAICO",
+    "brand": "Prysmian / Procables",
+    "desc": "Conexiones entre módulos, strings, cajas combinadoras e inversores. Verificar tensión máxima, sección, UV, temperatura y norma exigida por el proyecto.",
+    "spec": [
+      [
+        "Familias sugeridas",
+        "Prysun / Cable Tecsun; Cable Fotovoltaico PV"
+      ],
+      [
+        "Servicio",
+        "DC fotovoltaico"
+      ],
+      [
+        "Validación",
+        "Ficha técnica vigente"
+      ]
+    ],
+    "families": [
+      "Prysun – Cable Tecsun",
+      "Cable Fotovoltaico PV"
+    ],
+    "tags": [
+      "cable",
+      "dc"
+    ],
+    "catalog": "Catálogo Procables 2026: apartado Cables Fotovoltaicos."
+  },
+  {
+    "id": "combiner",
+    "n": "03",
+    "name": "String Box / Combiner Box",
+    "cat": "PROTECCIÓN DC",
+    "brand": "Integración de sistema",
+    "desc": "Agrupa strings e integra, según diseño, fusibles, seccionamiento y protección contra sobretensiones.",
+    "spec": [
+      [
+        "Función",
+        "Agrupar strings"
+      ],
+      [
+        "Opciones",
+        "Fusibles / seccionador / SPD"
+      ],
+      [
+        "Validación",
+        "Corriente DC y coordinación"
+      ]
+    ],
+    "families": [
+      "Fusibles DC",
+      "Seccionadores DC",
+      "SPD DC"
+    ],
+    "tags": [
+      "proteccion"
+    ],
+    "catalog": "Seleccionar según la arquitectura del inversor y el diseño eléctrico."
+  },
+  {
+    "id": "inverter",
+    "n": "04",
+    "name": "Inversor fotovoltaico",
+    "cat": "CONVERSIÓN DC/AC",
+    "brand": "Integración de sistema",
+    "desc": "Convierte la energía DC en AC para alimentar la red interna de baja tensión.",
+    "spec": [
+      [
+        "Entrada",
+        "DC"
+      ],
+      [
+        "Salida",
+        "AC baja tensión"
+      ],
+      [
+        "Validación",
+        "Tensión, MPPT y potencia"
+      ]
+    ],
+    "families": [
+      "Inversor string o central"
+    ],
+    "tags": [
+      "conversion"
+    ],
+    "catalog": "Equipo complementario al catálogo de cables."
+  },
+  {
+    "id": "ac",
+    "n": "05",
+    "name": "Salida AC de inversores",
+    "cat": "CABLE DE POTENCIA BT",
+    "brand": "Prysmian / Procables",
+    "desc": "Conecta inversores con tableros y transformador. La familia y sección se verifican con ampacidad, caída de tensión, agrupamiento, temperatura y método de instalación.",
+    "spec": [
+      [
+        "Familia principal sugerida",
+        "Voltenax ECO GRID"
+      ],
+      [
+        "Otras familias a evaluar",
+        "THHN/THWN-2 CT; RHW-2/USE-2; XHHW-2"
+      ],
+      [
+        "Validación",
+        "Ficha técnica y condiciones de instalación"
+      ]
+    ],
+    "families": [
+      "Voltenax ECO GRID",
+      "THHN/THWN-2 CT",
+      "RHW-2/USE-2",
+      "Exzhellent XHHW-2"
+    ],
+    "tags": [
+      "cable",
+      "ac"
+    ],
+    "catalog": "Catálogo Procables 2026: Voltenax ECO GRID y familias de baja tensión. Confirmar aplicación exacta con ficha vigente."
+  },
+  {
+    "id": "protection",
+    "n": "06",
+    "name": "Protecciones AC y DC",
+    "cat": "PROTECCIÓN",
+    "brand": "Sistema eléctrico",
+    "desc": "Protección contra sobrecorriente y sobretensiones, maniobra y desconexión. Requiere estudio de cortocircuito y coordinación.",
+    "spec": [
+      [
+        "DC",
+        "Fusibles / seccionadores / SPD"
+      ],
+      [
+        "AC",
+        "Interruptores / SPD"
+      ],
+      [
+        "Validación",
+        "Icc y coordinación"
+      ]
+    ],
+    "families": [
+      "Interruptores",
+      "Fusibles",
+      "SPD",
+      "Tableros"
+    ],
+    "tags": [
+      "proteccion"
+    ],
+    "catalog": "Seleccionar con el estudio eléctrico y las normas aplicables."
+  },
+  {
+    "id": "monitoring",
+    "n": "07",
+    "name": "Monitoreo / SCADA / EOSS",
+    "cat": "SUPERVISIÓN",
+    "brand": "Solución de integración",
+    "desc": "Supervisa producción, alarmas y variables de operación. Para activos críticos se puede evaluar monitoreo de condición de cables y equipos.",
+    "spec": [
+      [
+        "Función",
+        "Datos y alarmas"
+      ],
+      [
+        "Integración",
+        "SCADA / plataforma"
+      ],
+      [
+        "Uso",
+        "Operación y mantenimiento"
+      ]
+    ],
+    "families": [
+      "Medición",
+      "Comunicaciones",
+      "Monitoreo de activos"
+    ],
+    "tags": [
+      "monitoreo"
+    ],
+    "catalog": "Definir protocolos e interfaces con los equipos seleccionados."
+  },
+  {
+    "id": "grounding",
+    "n": "08",
+    "name": "Malla de puesta a tierra",
+    "cat": "CONDUCTOR DE TIERRA",
+    "brand": "Procables / selección de ingeniería",
+    "desc": "Para malla y equipotencialidad, considerar conductor de cobre desnudo cuando corresponda al diseño. Dimensionar por corriente de falla, despeje, corrosión y requisitos del proyecto.",
+    "spec": [
+      [
+        "Familia sugerida",
+        "Cobre desnudo"
+      ],
+      [
+        "Aplicación",
+        "Malla y conexiones a tierra"
+      ],
+      [
+        "Validación",
+        "Sección y corriente de falla"
+      ]
+    ],
+    "families": [
+      "Conductor de cobre desnudo",
+      "Conectores de puesta a tierra"
+    ],
+    "tags": [
+      "cable",
+      "tierra"
+    ],
+    "catalog": "Verificar referencia exacta, sección y disponibilidad con la ficha técnica del catálogo."
+  },
+  {
+    "id": "transformer",
+    "n": "09",
+    "name": "Transformador elevador",
+    "cat": "TRANSFORMACIÓN",
+    "brand": "Integración de sistema",
+    "desc": "Eleva la tensión de BT a MT para interconexión. Potencia, impedancia, grupo vectorial y aislamiento se definen en ingeniería.",
+    "spec": [
+      [
+        "Función",
+        "BT → MT"
+      ],
+      [
+        "Selección",
+        "Según potencia y red"
+      ],
+      [
+        "Integración",
+        "Protección y medición"
+      ]
+    ],
+    "families": [
+      "Transformador elevador"
+    ],
+    "tags": [
+      "mt"
+    ],
+    "catalog": "Equipo complementario; especificación según proyecto."
+  },
+  {
+    "id": "switchgear",
+    "n": "10",
+    "name": "Celda de media tensión",
+    "cat": "MEDIA TENSIÓN",
+    "brand": "Integración de sistema",
+    "desc": "Maniobra, seccionamiento, protección y medición del circuito MT. Seleccionar tensión, corriente, cortocircuito y esquema de protección.",
+    "spec": [
+      [
+        "Servicio",
+        "Media tensión"
+      ],
+      [
+        "Funciones",
+        "Maniobra / protección"
+      ],
+      [
+        "Validación",
+        "Aislamiento e Icc"
+      ]
+    ],
+    "families": [
+      "Celda MT",
+      "Relés de protección"
+    ],
+    "tags": [
+      "mt",
+      "proteccion"
+    ],
+    "catalog": "Validar con el diseño de interconexión y los requisitos de la distribuidora."
+  },
+  {
+    "id": "mv",
+    "n": "11",
+    "name": "Cable AC de media tensión",
+    "cat": "CABLE MT",
+    "brand": "Prysmian / Procables",
+    "desc": "Conexión entre transformador, celda y punto de interconexión. Evaluar la familia XAT contra tensión de red, instalación, nivel de aislamiento y ficha técnica vigente.",
+    "spec": [
+      [
+        "Familia solicitada",
+        "XAT — confirmar designación exacta"
+      ],
+      [
+        "Accesorios",
+        "Terminales y empalmes compatibles"
+      ],
+      [
+        "Validación",
+        "Tensión, aislamiento y pantalla"
+      ]
+    ],
+    "families": [
+      "XAT",
+      "Terminales y empalmes MT"
+    ],
+    "tags": [
+      "cable",
+      "mt"
+    ],
+    "catalog": "Se conserva XAT como familia solicitada; confirmar denominación y aplicación exactas en ficha técnica."
+  },
+  {
+    "id": "overhead",
+    "n": "12",
+    "name": "Conductor de aluminio para red aérea",
+    "cat": "CONDUCTOR AÉREO",
+    "brand": "Procables",
+    "desc": "Para tramos de evacuación o conexión aérea, estudiar conductor según vano, carga mecánica, ampacidad, ambiente y criterios de la distribuidora.",
+    "spec": [
+      [
+        "Familias a evaluar",
+        "AAC / AAAC / ACSR / ACSS"
+      ],
+      [
+        "Aplicación",
+        "Red aérea"
+      ],
+      [
+        "Validación",
+        "Tensión mecánica y ampacidad"
+      ]
+    ],
+    "families": [
+      "AAC",
+      "AAAC",
+      "ACSR",
+      "ACSS"
+    ],
+    "tags": [
+      "cable",
+      "aereo"
+    ],
+    "catalog": "Catálogo Procables 2026: conductores de aluminio desnudo. La familia depende del diseño mecánico-eléctrico."
+  },
+  {
+    "id": "aux",
+    "n": "13",
+    "name": "Alimentadores auxiliares BT",
+    "cat": "CABLEADO BT",
+    "brand": "Prysmian / Procables",
+    "desc": "Circuitos auxiliares, tableros y alimentación de equipos. Elegir la familia según ambiente, instalación y requisitos de fuego/humo.",
+    "spec": [
+      [
+        "Familias a revisar",
+        "Exzhellent Green; THHN/THWN-2 CT; XHHW-2"
+      ],
+      [
+        "Aplicación",
+        "Auxiliares BT"
+      ],
+      [
+        "Validación",
+        "Norma, aislamiento y ambiente"
+      ]
+    ],
+    "families": [
+      "Exzhellent Green",
+      "THHN/THWN-2 CT",
+      "Exzhellent XHHW-2"
+    ],
+    "tags": [
+      "cable",
+      "auxiliar"
+    ],
+    "catalog": "Familias presentes en el catálogo; revisar características específicas antes de especificar."
+  }
+]
